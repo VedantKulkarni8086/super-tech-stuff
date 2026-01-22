@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Loan Application</title>
+  <link href="style.css" rel="stylesheet"
+  </head>
+<body>
+  <div class="container" id="app">
+    <!-- Form view -->
+    <div id="form-view">
+      <h2>Loan Application</h2>
+      <form id="loanForm" novalidate>
+        <label for="fullname">Full name</label>
+        <input id="fullname" name="fullname" type="text" placeholder="e.g. Rajesh Kumar" required />
+        <div id="fullnameError" class="error"></div>
+
+        <label for="email">Email</label>
+        <input id="email" name="email" type="email" placeholder="you@example.com" required />
+        <div id="emailError" class="error"></div>
+
+        <label for="pan">PAN (format: ABCDE1234F)</label>
+        <input id="pan" name="pan" type="text" placeholder="ABCDE1234F" maxlength="10" required />
+        <div id="panError" class="error"></div>
+
+        <label for="amount">Loan amount (numeric, max 9 digits)</label>
+        <input id="amount" name="amount" type="text" inputmode="numeric" placeholder="e.g. 5000000" required />
+        <div id="amountError" class="error"></div>
+        <div class="amount-words" id="amountWords"></div>
+
+        <label>Captcha - solve to proceed</label>
+        <div class="captcha-box">
+          <div id="captchaText" class="captcha">...</div>
+          <input id="captchaInput" name="captcha" type="text" placeholder="answer" style="width:120px;padding:8px;border-radius:6px;border:1px solid #d1d5db" />
+          <a id="newCaptcha" class="button-like">new_captcha</a>
+        </div>
+        <div id="captchaError" class="error"></div>
+
+        <div class="footer">Note: All fields are validated client-side. This is a front-end demo.</div>
+
+        <button id="submitBtn" type="submit">Submit Application</button>
+      </form>
+    </div>
+
+    <!-- Thank you / OTP view -->
+    <div id="thankyou-view" class="hidden">
+      <h2>Thank you</h2>
+      <p id="thankyouMessage" class="meta"></p>
+
+      <div id="otp-section">
+        <label for="otp">Enter 4-digit verification code</label>
+        <input id="otp" maxlength="4" placeholder="1234" />
+        <div id="otpError" class="error"></div>
+        <div style="margin-top:12px">
+          <button id="validateOtpBtn">Validate</button>
+        </div>
+        <div id="otpAttempts" class="muted" style="margin-top:10px">Attempts left: 3</div>
+      </div>
+    </div>
+
+    <!-- 404 view -->
+    <div id="404-view" class="hidden center">
+      <h1>404</h1>
+      <p>Page not found on SPCL Website.</p>
+      <p><a href="https://spclinfotech.com/" target="_blank" id="goHome">Return to Home</a></p>
+    </div>
+
+  </div>
+
+<script src="script.js"></script>
+</script>
+</body>
+</html>
